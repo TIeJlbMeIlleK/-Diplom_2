@@ -1,5 +1,5 @@
 import api.client.Order;
-import io.restassured.RestAssured;
+import constants.BaseClass;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,7 +9,7 @@ public class CreateBadOrderTest {
 
     @Before
     public void beforeTest() {
-        RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
+        BaseClass.setUp();
     }
 
     @Test

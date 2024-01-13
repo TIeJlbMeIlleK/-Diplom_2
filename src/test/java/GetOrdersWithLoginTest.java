@@ -1,6 +1,6 @@
 import api.client.Client;
 import api.client.Order;
-import io.restassured.RestAssured;
+import constants.BaseClass;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +13,7 @@ public class GetOrdersWithLoginTest {
 
     @Before
     public void beforeTest() {
-        RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
+        BaseClass.setUp();
         client.createClient();
         token = Client.loginAndExtractAccessTokenOfClient();
         order.createOrderWithLogin(token);

@@ -20,6 +20,8 @@ public class Client {
     private static final File badClientLogin = new File("src/test/resources/badClientLogin.json");
     private static final File newCredits = new File("src/test/resources/newCredits.json");
 
+    private String userEmail = "v_evgrafov_iitdgroup@yandex.ru";
+    private String userName = "v_evgrafov";
 
     @Step("Создание клиента")
     public void createClient() {
@@ -86,7 +88,7 @@ public class Client {
     }
 
     @Step("Изменение email и name по клиенту")
-    public void changeCreditsOfClient(String accessToken) {
+    public void changeNameAndEmailOfClient(String accessToken) {
         given()
                 .header("Authorization", accessToken)
                 .contentType(ContentType.CONTENT_TYPE)
@@ -96,8 +98,8 @@ public class Client {
                 .then()
                 .statusCode(200)
                 .body("success", equalTo(true))
-                .body("user.email", equalTo("v_evgrafov_iitdgroup@yandex.ru"))
-                .body("user.name", equalTo("v_evgrafov"));
+                .body("user.email", equalTo(userEmail))
+                .body("user.name", equalTo(userName));
     }
 
     @Step("Изменение email и name по клиенту, без авторизации")

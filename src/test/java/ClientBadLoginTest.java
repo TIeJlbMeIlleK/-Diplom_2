@@ -1,6 +1,5 @@
 import api.client.Client;
-import io.restassured.RestAssured;
-import org.junit.After;
+import constants.BaseClass;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,11 +8,11 @@ public class ClientBadLoginTest {
 
     @Before
     public void beforeTest() {
-        RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
+        BaseClass.setUp();
     }
 
     @Test
-    public void testLoginClient(){
+    public void testLoginClient() {
         client.badLoginClient();
     }
 }

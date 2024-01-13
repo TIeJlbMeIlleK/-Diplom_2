@@ -1,20 +1,20 @@
 import api.client.Client;
-import io.restassured.RestAssured;
+import constants.BaseClass;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class CreateNewClientTest {
 
-    Client client =  new Client();
+    Client client = new Client();
 
     @Before
     public void beforeTest() {
-        RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
+        BaseClass.setUp();
     }
 
     @Test
-    public void testCreateClient(){
+    public void testCreateClient() {
         client.createClient();
     }
 

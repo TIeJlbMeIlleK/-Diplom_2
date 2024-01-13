@@ -1,24 +1,24 @@
 import api.client.Client;
-import io.restassured.RestAssured;
+import constants.BaseClass;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class ChangingDataForClientTest {
 
-    Client client =  new Client();
+    Client client = new Client();
     private String token;
 
     @Before
     public void beforeTest() {
-        RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
+        BaseClass.setUp();
         client.createClient();
     }
 
     @Test
-    public void testChangeData(){
+    public void changeNameAndEmailOfClient() {
         token = Client.loginAndExtractAccessTokenOfClient();
-        client.changeCreditsOfClient(token);
+        client.changeNameAndEmailOfClient(token);
     }
 
     @After
